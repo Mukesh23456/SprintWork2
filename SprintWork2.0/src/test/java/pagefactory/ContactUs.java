@@ -99,10 +99,11 @@ public void message(String s)
 	contact.sendKeys(s);
 }
 
-public void agree(int s)
+public void agree(int s) throws InterruptedException
 {
 	if(s==1) {
 	agree.click();}
+	Thread.sleep(500);
 }
 
 public void clickcontactus()
