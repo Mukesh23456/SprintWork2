@@ -64,7 +64,7 @@ static WebDriver driver;
 	    c.company(company);
 	    
 	    
-	    js.executeScript("window.scrollBy(0,550)", "");
+	    js.executeScript("window.scrollBy(0,400)", "");
 	    c.email(email);
 	    c.role(role);
 	    c.interest(interest);

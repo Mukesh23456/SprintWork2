@@ -63,7 +63,7 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    c.country(country);
 	    c.phone(phone);
 	    c.company(company);
-	    js.executeScript("window.scrollBy(0,450)", "");
+	    js.executeScript("window.scrollBy(0,400)", "");
 	    c.email(email);
 	    c.role(role);
 	    c.interest(interest);
