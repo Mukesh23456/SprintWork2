@@ -50,6 +50,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	    String phone=testdata.get(row).get("phone");
 	    String country=testdata.get(row).get("country");
 	    String role=testdata.get(row).get("role");
+	    String agree=testdata.get(row).get("agree");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    js.executeScript("window.scrollBy(0,350)", "");
 	    r.enterEmail(email);
@@ -59,7 +60,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	    r.enterPhone(phone);
 	    r.selectCountry(country);
 	    r.selectRole(role);
-	    r.clickAgree();
+	    r.clickAgree(agree);
 	    
 	    
 	    r.enterrequestdemo();

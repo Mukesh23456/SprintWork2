@@ -49,7 +49,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    String phone=testdata.get(row).get("phone");
 	    String country=testdata.get(row).get("country");
 	    String role=testdata.get(row).get("role");
-	    
+	    String agree=testdata.get(row).get("agree");
 	    r.enterEmail(email);
 	    r.enterFname(fname);
 	    r.enterLname(lname);
@@ -60,7 +60,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    r.selectCountry(country);
 	    r.selectRole(role);
 	    
-	    r.clickAgree();
+	    r.clickAgree(agree);
 	    takeScreenshot(driver);
 	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 	    r.enterrequestdemo();

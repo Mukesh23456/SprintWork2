@@ -99,9 +99,10 @@ public void message(String s)
 	contact.sendKeys(s);
 }
 
-public void agree()
+public void agree(String s)
 {
-	agree.click();
+	if(s=="yes") {
+	agree.click();}
 }
 
 public void clickcontactus()

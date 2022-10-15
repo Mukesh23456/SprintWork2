@@ -82,9 +82,11 @@ public class RequestDemo {
 	}
 	
 
-	public void clickAgree() throws InterruptedException
+	public void clickAgree(String s) throws InterruptedException
 	{
+		if(s=="yes") {
 		emailOptin.click();
+		}
 		Thread.sleep(2000);
 	}
 	

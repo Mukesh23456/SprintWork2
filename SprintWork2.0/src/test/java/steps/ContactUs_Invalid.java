@@ -54,6 +54,7 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    String role=testdata.get(row).get("role");
 	    String interest=testdata.get(row).get("interest");
 	    String message=testdata.get(row).get("message");
+	    String agree=testdata.get(row).get("agree");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    //js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
@@ -68,7 +69,7 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    c.interest(interest);
 	    c.message(message);
 	    
-	    c.agree();
+	    c.agree(agree);
 	    takeScreenshot(driver);
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
 	    c.clickcontactus();
