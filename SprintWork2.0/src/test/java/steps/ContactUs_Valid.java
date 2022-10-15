@@ -53,7 +53,7 @@ static WebDriver driver;
 	    String interest=testdata.get(row).get("interest");
 	    String message=testdata.get(row).get("message");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    Thread.sleep(2000);
+	    Thread.sleep(3000);
 	    js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
 	    c.fname(fname);
