@@ -58,6 +58,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    r.enterPhone(phone);
 	    r.selectCountry(country);
 	    r.selectRole(role);
+	    
 	    r.clickAgree();
 	    takeScreenshot(driver);
 	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
