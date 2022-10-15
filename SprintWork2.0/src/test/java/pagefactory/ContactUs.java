@@ -99,7 +99,7 @@ public void message(String s)
 	contact.sendKeys(s);
 }
 
-public void agree(int s) throws InterruptedException
+public void clickAgree(int s) throws InterruptedException
 {
 	if(s==1) {
 	agree.click();}
