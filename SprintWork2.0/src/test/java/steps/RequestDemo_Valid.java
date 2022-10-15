@@ -42,7 +42,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	    
 	    Thread.sleep(2000);
 	    ExcelReader reader=new ExcelReader();
-	    List<Map<String,String>> testdata=reader.getData("D:\\automation.xlsx",SheetName);
+	    List<Map<String,String>> testdata=reader.getData("D:\\capgemini\\automation.xlsx",SheetName);
 	    String email=testdata.get(row).get("email");
 	    String fname=testdata.get(row).get("fname");
 	    String lname=testdata.get(row).get("lname");
