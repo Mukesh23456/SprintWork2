@@ -39,7 +39,7 @@ static WebDriver driver;
 	    WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
 	    startTest();
 	    ContactUs c=new ContactUs(driver);
-	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+	   // driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 	    ExcelReader reader=new ExcelReader();
 	    List<Map<String,String>> testdata=reader.getData("D:\\capgemini\\automation.xlsx",SheetName);
 	    String reason=testdata.get(row).get("reason");
@@ -54,7 +54,7 @@ static WebDriver driver;
 	    String message=testdata.get(row).get("message");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    Thread.sleep(3000);
-	    js.executeScript("window.scrollBy(0,350)", "");
+	    //js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
 	    c.fname(fname);
 	    c.lname(lname);
@@ -63,7 +63,7 @@ static WebDriver driver;
 	    c.company(company);
 	    
 	    
-	    js.executeScript("window.scrollBy(0,350)", "");
+	    js.executeScript("window.scrollBy(0,550)", "");
 	    c.email(email);
 	    c.role(role);
 	    c.interest(interest);
