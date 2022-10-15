@@ -39,7 +39,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    RequestDemo r=new RequestDemo(driver);
 
 	    startTest();
-	    Thread.sleep(2000);
+	    Thread.sleep(3500);
 	    ExcelReader reader=new ExcelReader();
 	    List<Map<String,String>> testdata=reader.getData("D:\\capgemini\\automation.xlsx",SheetName);
 	    String email=testdata.get(row).get("email");
@@ -49,11 +49,12 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    String phone=testdata.get(row).get("phone");
 	    String country=testdata.get(row).get("country");
 	    String role=testdata.get(row).get("role");
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("window.scrollBy(0,350)", "");
+	    
 	    r.enterEmail(email);
 	    r.enterFname(fname);
 	    r.enterLname(lname);
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollBy(0,350)", "");
 	    r.enterCompany(company);
 	    r.enterPhone(phone);
 	    r.selectCountry(country);
