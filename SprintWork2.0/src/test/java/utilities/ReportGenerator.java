@@ -10,7 +10,7 @@ public class ReportGenerator {
 	public static int i = 1;
 
 	public void startReport() {
-		extent = new ExtentReports("D:\\capgemini\\selenium\\selenium demo\\SprintWork2.0\\src\\test\\resources\\report\\report.html",
+		extent = new ExtentReports("C:\\Users\\MUKESH\\git\\repository\\SprintWork2.0\\src\\test\\resources\\report\\report.html",
 				true);
 	}
 

@@ -15,7 +15,7 @@ public class ScreenshotGenerator extends ReportGenerator{
 	public void takeScreenshot(WebDriver driver) throws IOException {
 		File srcFile;
 		srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		Files.copy(srcFile, new File("D:\\capgemini\\selenium\\selenium demo\\SprintWork2.0\\src\\test\\resources\\Screenshots\\img" + i + ".jpeg"));
+		Files.copy(srcFile, new File("C:\\Users\\MUKESH\\git\\repository\\SprintWork2.0\\src\\test\\resources\\Screenshots\\img" + i + ".jpeg"));
 		i++;
 	}
 }
