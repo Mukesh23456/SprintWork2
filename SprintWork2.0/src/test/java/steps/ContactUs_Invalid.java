@@ -56,14 +56,14 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    String message=testdata.get(row).get("message");
 	    String agree=testdata.get(row).get("agree");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    //js.executeScript("window.scrollBy(0,350)", "");
+	    js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
 	    c.fname(fname);
 	    c.lname(lname);
 	    c.country(country);
 	    c.phone(phone);
 	    c.company(company);
-	    js.executeScript("window.scrollBy(0,750)", "");
+	    js.executeScript("window.scrollBy(0,450)", "");
 	    c.email(email);
 	    c.role(role);
 	    c.interest(interest);

@@ -55,7 +55,7 @@ static WebDriver driver;
 	    String agree=testdata.get(row).get("agree");
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    Thread.sleep(3000);
-	    //js.executeScript("window.scrollBy(0,350)", "");
+	    js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
 	    c.fname(fname);
 	    c.lname(lname);
@@ -64,7 +64,7 @@ static WebDriver driver;
 	    c.company(company);
 	    
 	    
-	    js.executeScript("window.scrollBy(0,750)", "");
+	    js.executeScript("window.scrollBy(0,550)", "");
 	    c.email(email);
 	    c.role(role);
 	    c.interest(interest);
