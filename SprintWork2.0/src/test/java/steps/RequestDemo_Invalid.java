@@ -60,7 +60,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 	    r.selectCountry(country);
 	    r.selectRole(role);
 	    
-	    r.clickAgree(agree);
+	    r.clickAgree(Integer.valueOf(agree));
 	    takeScreenshot(driver);
 	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 	    r.enterrequestdemo();

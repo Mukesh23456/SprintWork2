@@ -70,7 +70,7 @@ static WebDriver driver;
 	    c.interest(interest);
 	    c.message(message);
 	    
-	    c.agree(agree);
+	    c.agree(Integer.valueOf(agree));
 	    takeScreenshot(driver);
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
 	    c.clickcontactus();

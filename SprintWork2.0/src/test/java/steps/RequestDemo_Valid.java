@@ -60,7 +60,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	    r.enterPhone(phone);
 	    r.selectCountry(country);
 	    r.selectRole(role);
-	    r.clickAgree(agree);
+	    r.clickAgree(Integer.valueOf(agree));
 	    
 	    
 	    r.enterrequestdemo();

@@ -99,9 +99,9 @@ public void message(String s)
 	contact.sendKeys(s);
 }
 
-public void agree(String s)
+public void agree(int s)
 {
-	if(s=="yes") {
+	if(s==1) {
 	agree.click();}
 }
 
