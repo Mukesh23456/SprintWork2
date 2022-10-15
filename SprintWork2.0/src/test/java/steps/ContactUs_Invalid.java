@@ -78,7 +78,8 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	
 	
 	@When("he enters invalid details")
-	public void he_enters_invalid_details() {
+	public void he_enters_invalid_details() throws InterruptedException {
+		Thread.sleep(3000);
 		String a="Contact us - Tricentis";
 	    assertEquals(true,a.equals(driver.getTitle()));
 	}
