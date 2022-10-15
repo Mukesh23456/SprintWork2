@@ -29,8 +29,8 @@ public class ContactUs {
 	@FindBy(id="Contact_Me_Details__c")
 	WebElement contact;
 
-	@FindBy(xpath="//*[@id='emailOptin']")
-	WebElement agree;
+	@FindBy(id="emailOptin")
+	WebElement emailOptin;
 	
 	@FindBy(xpath="//*[@class='mktoButton']")
 	WebElement submit;
@@ -102,7 +102,8 @@ public void message(String s)
 public void clickAgree(int s) throws InterruptedException
 {
 	if(s==1) {
-	agree.click();}
+		emailOptin.click();
+	}
 	Thread.sleep(500);
 }
 
