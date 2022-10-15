@@ -73,13 +73,14 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
 	    c.clickcontactus();
 	    takeScreenshot(driver);
-	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	    Thread.sleep(3000);
+	    
 	}
 	
 	
 	@When("he enters invalid details")
 	public void he_enters_invalid_details() throws InterruptedException {
-		Thread.sleep(3000);
+		
 		String a="Contact us - Tricentis";
 	    assertEquals(true,a.equals(driver.getTitle()));
 	}
