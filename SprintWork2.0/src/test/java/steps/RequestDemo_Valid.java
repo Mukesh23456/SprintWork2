@@ -28,8 +28,8 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
  
   static WebDriver driver;
   String email,fname,lname,company,phone,country,role,agree;
-	RequestDemo r=new RequestDemo(driver);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	
 	
 	
     
@@ -62,8 +62,10 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
  
 	@When("he enters all details")
 	public void he_enters_all_details() throws NumberFormatException, InterruptedException, IOException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");
-	    r.enterEmail(email);
+		RequestDemo r=new RequestDemo(driver);
+		r.enterEmail(email);
 	    r.enterFname(fname);
 	    r.enterLname(lname);
 	    r.enterCompany(company);
@@ -82,6 +84,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	@SuppressWarnings("deprecation")
 	@Then("he submits the details")
 	public void he_submits_the_details() throws IOException {
+		RequestDemo r=new RequestDemo(driver);
 		r.enterRequestDemo();
 	    takeScreenshot(driver);
 	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);

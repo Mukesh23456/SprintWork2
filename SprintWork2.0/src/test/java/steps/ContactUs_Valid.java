@@ -1,10 +1,8 @@
 package steps;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
@@ -13,7 +11,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import io.cucumber.java.en.Given;
@@ -21,21 +18,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pagefactory.ContactUs;
 import pagefactory.Home;
-
 import utilities.ExcelReader;
 import utilities.ScreenshotGenerator;
 @Test
 public class ContactUs_Valid extends ScreenshotGenerator{
 	static WebDriver driver;
 	String reason,fname,lname,country,phone,company,email,role,interest,message,agree;
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-	ContactUs c=new ContactUs(driver);
 	
-	
-	@Given("the user views the contact page {string} and {int}")
-	public void the_user_views_the_contact_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException  {
-		System.setProperty("Webdriver.chrome.driver","D:\\capgemini\\selenium\\selenium demo\\Sprint2\\src\\test\\resources\\chromedriver.exe");
+	@Given("The person views the contact page {string} and {int}")
+	public void the_person_views_the_contact_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException {
+		System.setProperty("Webdriver.chrome.driver","chromedriver.exe");
 	     driver=new ChromeDriver();
 	     Home a=new Home(driver);
 	    a.enterContactUs();
@@ -56,17 +48,14 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	     interest=testdata.get(row).get("interest");
 	     message=testdata.get(row).get("message");
 	     agree=testdata.get(row).get("agree");
-	    
-	    
-	    
-	    
 	}
 	
-	@When("he enters valid details")
-	public void he_enters_valid_details() throws InterruptedException, IOException {
-		
+	@When("He gives the valid details")
+	public void he_gives_the_valid_details() throws InterruptedException, IOException {
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 	    js.executeScript("window.scrollBy(0,350)", "");
+	    ContactUs c=new ContactUs(driver);
 	    c.reason(reason);
 	    c.fname(fname);
 	    c.lname(lname);
@@ -83,12 +72,12 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	    
 	    c.clickAgree(Integer.valueOf(agree));
 	    takeScreenshot(driver);
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
-	    
+	   // wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
 	}
-	@Then("he submits the contact details")
-	public void he_submits_the_contact_details() throws IOException, InterruptedException {
-		
+	
+	@Then("He submits the valid contact details")
+	public void he_submits_the_valid_contact_details() throws InterruptedException, IOException {
+		ContactUs c=new ContactUs(driver);
 		c.clickContactUs();
 	    takeScreenshot(driver);
 	    Thread.sleep(4000);
@@ -99,5 +88,7 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	    endTest();
 	    driver.close();
 	}
-
+	
+	
+	
 }
