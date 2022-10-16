@@ -1,6 +1,7 @@
 package steps;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import io.cucumber.java.en.Given;
@@ -69,10 +71,10 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	    c.role(role);
 	    c.interest(interest);
 	    c.message(message);
-	    
+	    WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
 	    c.clickAgree(Integer.valueOf(agree));
 	    takeScreenshot(driver);
-	   // wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
 	}
 	
 	@Then("He submits the valid contact details")
