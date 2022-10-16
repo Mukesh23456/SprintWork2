@@ -91,7 +91,7 @@ public class RequestDemo {
 	}
 	
 	
-	public void enterrequestdemo()
+	public void enterRequestDemo()
 	{
 		submit.click();
 	}

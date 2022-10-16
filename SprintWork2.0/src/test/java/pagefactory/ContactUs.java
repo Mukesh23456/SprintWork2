@@ -36,13 +36,12 @@ public class ContactUs {
 	WebElement submit;
 	
 	
-	
-	public ContactUs(WebDriver driver)
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+public ContactUs(WebDriver driver)
+{
+	this.driver=driver;
+	PageFactory.initElements(driver,this);
 		
-	}
+}
 	
 
 public void reason(String s)
@@ -101,7 +100,8 @@ public void message(String s)
 
 public void clickAgree(int s) throws InterruptedException
 {
-	if(s==1) {
+	if(s==1)
+	{
 		emailOptin.click();
 	}
 	Thread.sleep(500);

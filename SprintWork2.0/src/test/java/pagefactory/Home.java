@@ -18,12 +18,12 @@ public class Home {
 		
 	}
 
-	public void enterRequestdemo()
+	public void enterRequestDemo()
 	{
 		driver.get("https://www.tricentis.com/software-testing-tool-trial-demo/demo-request");
 	}
 	
-	public void entercontactus()
+	public void enterContactUs()
 	{
 		driver.get("https://www.tricentis.com/contact-us");
 	}

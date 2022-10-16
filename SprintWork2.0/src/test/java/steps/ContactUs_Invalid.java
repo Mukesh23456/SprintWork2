@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
@@ -29,34 +29,47 @@ import utilities.ScreenshotGenerator;
 public class ContactUs_Invalid extends ScreenshotGenerator{
 	
 	static WebDriver driver;
+	String reason,fname,lname,country,phone,company,email,role,interest,message,agree;
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+	ContactUs c=new ContactUs(driver);
 
 	
-	@SuppressWarnings("deprecation")
+
 	@Given("The user views the contact page {string} and {int}")
 	public void the_user_views_the_contact_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException, InterruptedException {
 		System.setProperty("Webdriver.chrome.driver","chromedriver.exe");
 	    driver=new ChromeDriver();
 	    Home a=new Home(driver);
-	    a.entercontactus();
+	    a.enterContactUs();
 	    startTest();
-	    WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-	    ContactUs c=new ContactUs(driver);
+	    
+	    
 	    Thread.sleep(3000);
 	    ExcelReader reader=new ExcelReader();
 	    List<Map<String,String>> testdata=reader.getData("D:\\capgemini\\automation.xlsx",SheetName);
-	    String reason=testdata.get(row).get("reason");
-	    String fname=testdata.get(row).get("fname");
-	    String lname=testdata.get(row).get("lname");
-	    String country=testdata.get(row).get("country");
-	    String phone=testdata.get(row).get("phone");
-	    String company=testdata.get(row).get("company");
-	    String email=testdata.get(row).get("email");
-	    String role=testdata.get(row).get("role");
-	    String interest=testdata.get(row).get("interest");
-	    String message=testdata.get(row).get("message");
-	    String agree=testdata.get(row).get("agree");
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("window.scrollBy(0,350)", "");
+	    reason=testdata.get(row).get("reason");
+	    fname=testdata.get(row).get("fname");
+	    lname=testdata.get(row).get("lname");
+	    country=testdata.get(row).get("country");
+	    phone=testdata.get(row).get("phone");
+	    company=testdata.get(row).get("company");
+	    email=testdata.get(row).get("email");
+	    role=testdata.get(row).get("role");
+	    interest=testdata.get(row).get("interest");
+	    message=testdata.get(row).get("message");
+	    agree=testdata.get(row).get("agree");
+	    
+	    
+	    
+	}
+	
+	
+	@When("he enters invalid details")
+	public void he_enters_invalid_details() throws InterruptedException, IOException {
+		
+		
+		js.executeScript("window.scrollBy(0,350)", "");
 	    c.reason(reason);
 	    c.fname(fname);
 	    c.lname(lname);
@@ -72,21 +85,17 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 	    c.clickAgree(Integer.valueOf(agree));
 	    takeScreenshot(driver);
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Contact_Me_Details__c")));
-	    c.clickcontactus();
-	    takeScreenshot(driver);
-	    Thread.sleep(4000);
 	    
 	}
-	
-	
-	@When("he enters invalid details")
-	public void he_enters_invalid_details() throws InterruptedException {
+	@Then("He submits the contact details")
+	public void He_submits_the_contact_details() throws IOException, InterruptedException {
+		
+		c.clickcontactus();
+	    takeScreenshot(driver);
+	    Thread.sleep(4000);
 		
 		String a="Contact us - Tricentis";
 	    assertEquals(true,a.equals(driver.getTitle()));
-	}
-	@Then("He submits the contact details")
-	public void He_submits_the_contact_details() {
 	    endTest();
 	    endReport();
 	    driver.close();

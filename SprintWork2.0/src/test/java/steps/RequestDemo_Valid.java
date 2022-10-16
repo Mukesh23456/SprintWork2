@@ -27,32 +27,42 @@ import utilities.ScreenshotGenerator;
 public class RequestDemo_Valid extends ScreenshotGenerator{
  
   static WebDriver driver;
+  String email,fname,lname,company,phone,country,role,agree;
+	RequestDemo r=new RequestDemo(driver);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	
-    @SuppressWarnings("deprecation")
+    
 	@Given("the user is in the request demo page {string} and {int}")
 	public void the_user_is_in_the_request_demo_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException, InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver=new ChromeDriver();
 		Home a=new Home(driver);
-	    a.enterRequestdemo();
-	    RequestDemo r=new RequestDemo(driver);
+	    a.enterRequestDemo();
+	    
 	    startReport();
 	    startTest();
 	    
 	    Thread.sleep(3000);
 	    ExcelReader reader=new ExcelReader();
 	    List<Map<String,String>> testdata=reader.getData("D:\\capgemini\\automation.xlsx",SheetName);
-	    String email=testdata.get(row).get("email");
-	    String fname=testdata.get(row).get("fname");
-	    String lname=testdata.get(row).get("lname");
-	    String company=testdata.get(row).get("company");
-	    String phone=testdata.get(row).get("phone");
-	    String country=testdata.get(row).get("country");
-	    String role=testdata.get(row).get("role");
-	    String agree=testdata.get(row).get("agree");
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("window.scrollBy(0,350)", "");
+	     email=testdata.get(row).get("email");
+	     fname=testdata.get(row).get("fname");
+	     lname=testdata.get(row).get("lname");
+	     company=testdata.get(row).get("company");
+	     phone=testdata.get(row).get("phone");
+	     country=testdata.get(row).get("country");
+	     role=testdata.get(row).get("role");
+	     agree=testdata.get(row).get("agree");
+	     
+	    
+	    
+	}
+	
+ 
+	@When("he enters all details")
+	public void he_enters_all_details() throws NumberFormatException, InterruptedException {
+		js.executeScript("window.scrollBy(0,350)", "");
 	    r.enterEmail(email);
 	    r.enterFname(fname);
 	    r.enterLname(lname);
@@ -63,22 +73,19 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	    r.clickAgree(Integer.valueOf(agree));
 	    
 	    
-	    r.enterrequestdemo();
-	    takeScreenshot(driver);
-	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-	}
-	
- 
-	@When("he enters all details")
-	public void he_enters_all_details() {
-		boolean a=driver.findElement(By.xpath("//*[@class='ProductDemoFormTemplate_h4__zNlcM']")).isDisplayed();
-		assertEquals(true,a);
+	    
 	    
 	}
  
  
+	@SuppressWarnings("deprecation")
 	@Then("he submits the details")
-	public void he_submits_the_details() {
+	public void he_submits_the_details() throws IOException {
+		r.enterRequestDemo();
+	    takeScreenshot(driver);
+	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		boolean a=driver.findElement(By.xpath("//*[@class='ProductDemoFormTemplate_h4__zNlcM']")).isDisplayed();
+		assertEquals(true,a);
 		endTest();
 		driver.quit();
 		
