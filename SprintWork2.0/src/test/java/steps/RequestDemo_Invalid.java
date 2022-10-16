@@ -89,7 +89,7 @@ public class RequestDemo_Invalid extends ScreenshotGenerator{
 		r.enterRequestDemo();
 	    takeScreenshot(driver);
 	    Thread.sleep(3000);
-	    boolean b=driver.findElement(By.xpath("//*[@id='Company']")).isDisplayed();
+	   // boolean b=driver.findElement(By.xpath("//*[@id='Company']")).isDisplayed();
 	    //assertEquals(true,b);
 	    driver.quit();
 	    endTest();

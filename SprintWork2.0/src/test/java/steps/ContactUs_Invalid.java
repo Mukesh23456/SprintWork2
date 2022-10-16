@@ -87,7 +87,7 @@ public class ContactUs_Invalid extends ScreenshotGenerator{
 		c.clickContactUs();
 	    takeScreenshot(driver);
 	    Thread.sleep(4000);
-	    String a="Contact us - Tricentis";
+	   // String a="Contact us - Tricentis";
 	    //assertEquals(true,a.equals(driver.getTitle()));
 	    endTest();
 	    endReport();
