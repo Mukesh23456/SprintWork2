@@ -34,7 +34,7 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	
     
 	@Given("the user is in the request demo page {string} and {int}")
-	public void the_user_is_in_the_request_demo_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException, InterruptedException {
+	public void the_user_is_in_the_request_demo_page_and(String SheetName, Integer row) throws InterruptedException, InvalidFormatException, IOException {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver=new ChromeDriver();
 		Home a=new Home(driver);
@@ -61,13 +61,14 @@ public class RequestDemo_Valid extends ScreenshotGenerator{
 	
  
 	@When("he enters all details")
-	public void he_enters_all_details() throws NumberFormatException, InterruptedException {
+	public void he_enters_all_details() throws NumberFormatException, InterruptedException, IOException {
 		js.executeScript("window.scrollBy(0,350)", "");
 	    r.enterEmail(email);
 	    r.enterFname(fname);
 	    r.enterLname(lname);
 	    r.enterCompany(company);
 	    r.enterPhone(phone);
+	    takeScreenshot(driver);
 	    r.selectCountry(country);
 	    r.selectRole(role);
 	    r.clickAgree(Integer.valueOf(agree));

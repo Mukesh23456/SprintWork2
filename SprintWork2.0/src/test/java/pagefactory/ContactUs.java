@@ -107,7 +107,7 @@ public void clickAgree(int s) throws InterruptedException
 	Thread.sleep(500);
 }
 
-public void clickcontactus()
+public void clickContactUs()
 {
 	submit.click();;
 }

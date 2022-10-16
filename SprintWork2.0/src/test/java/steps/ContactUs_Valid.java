@@ -34,7 +34,7 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	
 	
 	@Given("the user views the contact page {string} and {int}")
-	public void the_user_views_the_contact_page_and(String SheetName, Integer row) throws InterruptedException, InvalidFormatException, IOException {
+	public void the_user_views_the_contact_page_and(String SheetName, Integer row) throws InvalidFormatException, IOException  {
 		System.setProperty("Webdriver.chrome.driver","D:\\capgemini\\selenium\\selenium demo\\Sprint2\\src\\test\\resources\\chromedriver.exe");
 	     driver=new ChromeDriver();
 	     Home a=new Home(driver);
@@ -89,7 +89,7 @@ public class ContactUs_Valid extends ScreenshotGenerator{
 	@Then("he submits the contact details")
 	public void he_submits_the_contact_details() throws IOException, InterruptedException {
 		
-		c.clickcontactus();
+		c.clickContactUs();
 	    takeScreenshot(driver);
 	    Thread.sleep(4000);
 	    
